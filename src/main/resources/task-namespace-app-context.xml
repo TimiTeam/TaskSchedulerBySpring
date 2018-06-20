@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd">
+
+       <import resource="car-job-app-context.xml"/>
+
+       <!-- Having discovered the handle <task: scheduler>,
+       the Spring platform creates an instance of the ThreadPoolTaskScheduler class -->
+       <task:scheduler id="myScheduler" pool-size="10"/>
+       <!-- The pool-size specifies the size of the thread pool that the scheduler can use -->
+
+       <!-- Inside <task:scheduled-tasks> it is allowed to plan one or several tasks -->
+       <task:scheduled-tasks scheduler="myScheduler">
+              <task:scheduled ref="carService" method="updateCarAgeJob"
+                              fixed-delay="10000"/>
+       </task:scheduled-tasks>
+       <!-- The task can refer to the Spring Bean and a specific method -->
+       <!-- The fixed-delay attribute tells Spring to create a PeriodicTrigger
+       as a Trigger implementation for TaskScheduler -->
+</beans>

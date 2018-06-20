@@ -18,6 +18,15 @@ public class Car {
     private int age;
 
 
+    public Car() {
+    }
+
+    public Car(String licensePlate, String manufacturer, DateTime manufactureDate) {
+        this.licensePlate = licensePlate;
+        this.manufacturer = manufacturer;
+        this.manufactureDate = manufactureDate;
+    }
+
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

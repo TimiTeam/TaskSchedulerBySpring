@@ -13,12 +13,11 @@ public class ScheduleTaskSample {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("car-job-app-context.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("task-namespace-app-context.xml");
 
-        CarService service = context.getBean("carService",CarService.class);
+        while (true){
 
-        listAll(service.findAll());
-
+        }
     }
 
     private static void listAll(List<Car> carList){
