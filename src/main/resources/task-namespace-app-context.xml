@@ -14,9 +14,10 @@
        <!-- Inside <task:scheduled-tasks> it is allowed to plan one or several tasks -->
        <task:scheduled-tasks scheduler="myScheduler">
               <task:scheduled ref="carService" method="updateCarAgeJob"
-                              fixed-delay="10000"/>
+                              cron="0 * * * * *"/>
        </task:scheduled-tasks>
+       <!-- The 'cron=0 * * * * *' provide that the task will be executed every minute -->
        <!-- The task can refer to the Spring Bean and a specific method -->
-       <!-- The fixed-delay attribute tells Spring to create a PeriodicTrigger
+       <!-- The 'fixed-delay = 10000' attribute tells Spring to create a PeriodicTrigger
        as a Trigger implementation for TaskScheduler -->
 </beans>
