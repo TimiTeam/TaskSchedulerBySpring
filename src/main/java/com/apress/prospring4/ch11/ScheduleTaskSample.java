@@ -13,7 +13,7 @@ public class ScheduleTaskSample {
 
     public static void main(String[] args) {
 
-        ApplicationContext context = new ClassPathXmlApplicationContext("task-namespace-app-context.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext("task-annotation-app-context.xml");
 
         while (true){
 
